@@ -32,19 +32,15 @@ public class CollaboratorImpl {
 		
 		@Override
 		public Note addCollaborator(Long id, String email, String  token) {
-
+			
 			User collaborator = userRepo.getUser(email);
-//			try {
+			
 				System.out.println("in service");
 				Long userid = jwtProvider.decodeToken(token);
 				System.out.println("inside note service" + userid);
 
 				User user = userRepo.getUserById(userid).orElseThrow(() -> new UserException("user not found"));
-//			}
-//			
-//			catch(Exception e) {
-//				throw new UserException("user is not present with the given id ");
-//			}
+			
 			if(user !=null) {
 				if(collaborator !=null) {
 			
@@ -52,8 +48,7 @@ public class CollaboratorImpl {
 					//note.getCollabList().add(collaborator);
 					//user.getColaborateNote().add(note);
 					//noteRepo.saveNote(note);
-//					collaborator.getColaborateNote().add(note);
-					collaborator.getCollaborateNote().add(note);
+					collaborator.getColaborateNote().add(note);
 //					userRepo.save(collaborator);
 //					noteRepo.saveNote(note);
 					return note;
@@ -72,7 +67,7 @@ public class CollaboratorImpl {
 		public List<Note> getColabNotes(String token) throws JWTVerificationException,IllegalArgumentException,UnsupportedEncodingException{
 			Long userid = jwtProvider.decodeToken(token);
 			User user = userRepo.getUserById(userid).orElseThrow(() -> new UserException("user not found"));			
-			List<Note> notes=user.getCollaborateNote();
+			List<Note> notes=user.getColaborateNote();
 			return notes;
 			
 			
@@ -86,11 +81,11 @@ public class CollaboratorImpl {
 				Long userid = jwtProvider.decodeToken(token);
 				System.out.println("inside note service" + userid);
 
-				User user = userRepo.getUserById(userid).orElseThrow(() -> new UserException("user not found"));
+				User user1 = userRepo.getUserById(userid).orElseThrow(() -> new UserException("user not found"));
 			}
 			
 			catch(Exception e) {
-				throw new UserException("user is not present with the given id ");
+				throw new UserException("user1 is not present with the given id ");
 			}
 			Note note=noteRepo.getNotebyNoteId(id);
 			note.getColabUser().remove(collaborator);

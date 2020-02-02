@@ -25,22 +25,3 @@ public class NoteAndColab {
 	
 }
 
-/*
-
-
-@Data
-@Entity
-public class Collaborator {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
-	private Long c_id;
-	@Column
-	private Long userid;
-	@Column
-	private Long noteId;
-	@Column
-	private String emailid;
-}
-
-*/

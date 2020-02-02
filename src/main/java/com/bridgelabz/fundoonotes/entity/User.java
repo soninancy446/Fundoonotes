@@ -75,11 +75,11 @@ public class User {
 	@JoinColumn(name = "userid")
 	private List<Note> note;
 
-//	@ManyToMany(cascade = CascadeType.ALL)
-//	@JoinTable(name = "Collaborator_Note", joinColumns = { @JoinColumn(name = "userid") }, inverseJoinColumns = {
-//			@JoinColumn(name = "id") })
-////	@JsonManagedReference
-//	@JsonIgnore
-//	private List<Note> colaborateNote;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "Collaborator_Note", joinColumns = { @JoinColumn(name = "userid") }, inverseJoinColumns = {
+			@JoinColumn(name = "id") })
+//	@JsonManagedReference
+	@JsonIgnore
+	private List<Note> colaborateNote;
 
 }

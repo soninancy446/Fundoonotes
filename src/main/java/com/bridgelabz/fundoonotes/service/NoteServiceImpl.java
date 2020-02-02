@@ -67,17 +67,7 @@ public class NoteServiceImpl implements NoteService {
 //		{
 			Note note=new Note();
 			BeanUtils.copyProperties(notedto,note);
-//			List<Note> list=user.getNote();
-//			System.out.println("DAA>......"+list);
-//			note.setDescription(notedto.getDescription());
-//			note.setTitle(notedto.getTitle());
-//			note.setCreatedDateAndTime(LocalDateTime.now());
-//			note.setArchive(false);
-//			note.setPinned(false);
-//			note.setInTrash(false);
-//			user.getNote().add(note);
-//			note.setUserid(user.getUserid());
-//			note.setColorCode("White");
+			
 			user.getNote().add(note);
 	
 			Note notes=noterepo.saveNote(note);
